@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+  --badge-offset: 92px;
+}
+
+body,
+html {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 240px 1fr 1fr 240px;
+  grid-template-rows: min-content 1fr min-content;
+  gap: 0px 0px;
+  grid-template-areas:
+    "header header header header"
+    ". page page ."
+    "footer footer footer footer";
+}
+
+header {
+  grid-area: header;
+  padding: 110px 240px 96px 240px;
+  display: flex;
+}
+
+.title,
+.description {
+  flex: 1 1;
+}
+
+.title h1 {
+  margin: 0;
+  font-family: "PT Serif";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 47px;
+  letter-spacing: -0.045em;
+  color: #000000;
+}
+
+.description h2 {
+  margin: 0;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.description p {
+  margin: 0;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  color: #000000;
+}
+
+.page {
+  grid-area: page;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 27px 67px;
+  grid-template-areas:
+    ". . ."
+    ". . .";
+  height: 100%;
+}
+
+.image-and-side-caption {
+  display: flex;
+}
+
+.image-and-side-caption img {
+  width: 238px;
+  height: auto;
+}
+
+.badge.up {
+  margin-bottom: var(--badge-offset);
+}
+
+.badge.down {
+  margin-top: var(--badge-offset);
+}
+
+.bottom-caption {
+  margin-top: 15px;
+  margin-bottom: 0;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.side-caption {
+  writing-mode: vertical-rl;
+  font-family: "PT Serif";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+footer {
+  grid-area: footer;
+  text-align: center;
+  color: #bdbdbd;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  padding: 115px 0 24px 0;
+  grid-area: footer;
+}
+
+footer a:visited {
+  color: #bdbdbd !important;
+}
+
+/* Dark mode */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: black;
+  }
+
+  .title h1,
+  .description h2,
+  .description p,
+  .page {
+    color: #ebeef6;
+  }
+
+  body.light-theme {
+    background: white;
+  }
+
+  body.light-theme .title h1,
+  body.light-theme .description h2,
+  body.light-theme .description p,
+  body.light-theme .page {
+    color: #000000;
+  }
+}
