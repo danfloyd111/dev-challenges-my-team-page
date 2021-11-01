@@ -21,6 +21,17 @@ body {
     "footer footer footer footer";
 }
 
+body.dark-theme {
+  background: black;
+}
+
+body.dark-theme .title h1,
+body.dark-theme .description h2,
+body.dark-theme .description p,
+body.dark-theme .page {
+  color: #ebeef6;
+}
+
 header {
   grid-area: header;
   padding: 110px 240px 96px 240px;
