@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   --badge-offset: 92px;
+  --badge-offset-small: 46px;
 }
 
 body,
@@ -29,6 +30,10 @@ header {
 .title,
 .description {
   flex: 1 1;
+}
+
+.description {
+  margin-left: 24px;
 }
 
 .title h1 {
@@ -83,15 +88,20 @@ header {
 }
 
 .image-and-side-caption img {
-  width: 238px;
+  max-width: 238px;
+  width: 100%;
   height: auto;
 }
 
-.badge.up {
+.badge:nth-child(1),
+.badge:nth-child(3),
+.badge:nth-child(4),
+.badge:nth-child(6) {
   margin-bottom: var(--badge-offset);
 }
 
-.badge.down {
+.badge:nth-child(2),
+.badge:nth-child(5) {
   margin-top: var(--badge-offset);
 }
 
@@ -157,5 +167,87 @@ footer a:visited {
   body.light-theme .description p,
   body.light-theme .page {
     color: #000000;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  body {
+    grid-template-columns: 120px 1fr 1fr 120px;
+  }
+
+  header {
+    padding: 110px 120px 96px 120px;
+  }
+
+  footer {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  body {
+    grid-template-columns: 19px 1fr 1fr 19px;
+  }
+
+  header {
+    padding: 71px 19px 71px 19px;
+    flex-direction: column;
+  }
+
+  .description {
+    margin-left: 0;
+    margin-top: 38px;
+  }
+
+  .title h1 {
+    font-size: 36px;
+    line-height: 47px;
+    letter-spacing: -0.045em;
+  }
+
+  .description h2 {
+    font-size: 18px;
+    line-height: 27px;
+    margin-bottom: 10px;
+  }
+
+  .description p {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .bottom-caption {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .side-caption {
+    font-size: 10px;
+    line-height: 13px;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 16px 26px;
+    grid-template-areas:
+      ". . "
+      ". . "
+      ". . ";
+  }
+
+  .badge:nth-child(2),
+  .badge:nth-child(4),
+  .badge:nth-child(6) {
+    margin-bottom: 0;
+    margin-top: var(--badge-offset-small);
+  }
+
+  .badge:nth-child(1),
+  .badge:nth-child(3),
+  .badge:nth-child(5) {
+    margin-top: 0;
+    margin-bottom: var(--badge-offset-small);
   }
 }
